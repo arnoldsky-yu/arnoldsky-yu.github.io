@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404: Game Over</title>
+    <style>
+        body {
+            font-family: 'Press Start 2P', cursive, sans-serif;
+            text-align: center;
+            background-color: #000;
+            color: #0f0;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            font-size: 3em;
+            margin-top: 50px;
+        }
+        p {
+            font-size: 1.2em;
+            margin: 20px;
+        }
+        a {
+            color: #0f0;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div>
+        <h1>🕹️ GAME OVER 🕹️</h1>
+        <h3>404: The page you're looking for is out of lives!</h3>
+        <p>🏆 Score: 0 | Time Left: 404 seconds</p>
+        <p><a href="/">Respawn at the Home Page</a></p>
+        <p>Or restart your quest here:</p>
+        <form action="/search" method="GET">
+            <input type="text" name="query" placeholder="Search the dungeon..." style="padding: 10px; width: 60%; background-color: #111; color: #0f0; border: 1px solid #0f0; border-radius: 5px;">
+            <button type="submit" style="padding: 10px 20px; background-color: #0f0; color: #000; border: none; border-radius: 5px;">Search</button>
+        </form>
+    </div>
+</body>
+</html>
