@@ -114,6 +114,28 @@
                 text-align: right;
             }
         }
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 25px;
+            background-color: rgba(255, 0, 0, 0.8);
+            opacity: 0;
+            animation: fall 1s ease-out forwards;
+        }
+
+        @keyframes fall {
+        0% {
+            transform: translateY(-200px) rotate(0deg);
+            opacity: 1;
+        }
+        50% {
+            transform: translateY(300px) rotate(180deg);
+        }
+        100% {
+            transform: translateY(100vh) rotate(720deg);
+            opacity: 0;
+        }
+    }
     </style>
 </head>
 <body>
@@ -137,7 +159,7 @@
                         NFC Tools iOS 下載連結</a>
                     <a href="https://play.google.com/store/apps/details?id=com.wakdev.wdnfc" target="_blank">
                         NFC Tools Android 下載連結
-                    </a>
+                </a>
                     最後，祝你聖誕快樂！且有個愉快的寒假 \owo/ <br>
                 </p>
             </div>
@@ -148,7 +170,24 @@
 <script>
     document.getElementById('envelope').addEventListener('click', function() {
         this.classList.add('open');
+        createConfetti();
     });
+
+    function createConfetti() {
+        for (let i = 0; i < 100; i++) {
+            const confetti = document.createElement('div');
+            confetti.classList.add('confetti');
+
+            confetti.style.left = `${Math.random() * window.innerWidth}px`;
+            confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 70%, 60%)`;
+            confetti.style.animationDelay = `${Math.random()}s`;
+
+            document.body.appendChild(confetti);
+
+            // 自動移除彩帶
+            setTimeout(() => confetti.remove(), 1500);
+        }
+    }
 </script>
 
 </body>
