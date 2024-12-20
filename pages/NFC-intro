@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>聖誕快樂！</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body, html {
+            height: 100%;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #f3f3f3;
+        }
+
+        .envelope {
+            width: 600px;
+            height: 400px;
+            background: #D2B48C; /* 牛皮紙色 */
+            border-radius: 5px;
+            position: relative;
+            cursor: pointer;
+            overflow: hidden;
+        }
+
+        .flap {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: #C19A6B; /* 深色牛皮紙 */
+            clip-path: polygon(0% 0%, 50% 50%, 100% 0%);
+            transition: all 0.8s ease-in-out;
+        }
+
+        .letter {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            padding: 30px 20px;
+            background: #D2B48C; /* 牛皮紙背景 */
+            color: black;
+            text-align: left;
+            opacity: 0;
+            transform: translateY(100%);
+            transition: all 0.8s ease-in-out;
+        }
+
+        .letter-content h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .letter-content p {
+            font-size: 18px;
+            line-height: 1;
+            white-space: pre-line;
+        }
+
+        .envelope.open .flap {
+            transform: translateY(-100%) rotateX(180deg);
+        }
+
+        .envelope.open .letter {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+<div class="envelope" id="envelope">
+    <div class="flap"></div>
+    <div class="letter" id="letter">
+        <div class="letter-content">
+            <h1>嗨！朋友，</h1>
+            <p>
+                關於這張 NFC 卡，最直接的用處你也體會到了<br>
+                可以寫入一些資料，如聯絡方式、簡介等等，<br>
+                或著用 NFC 打開應用程式，<br>
+                只要手機靠近 NFC 卡，就會自動執行。<br>
+                用法：下載 NFC tool，就可以寫入功能了！<br>
+                <a href="https://apps.apple.com/tw/app/nfc-tools/id1252962749">NFC tools IOS 下載點</a><br>
+                <a href="https://play.google.com/store/apps/details?id=com.wakdev.wdnfc">NFC tools Android 下載點</a><br>
+                最後，祝你聖誕快樂！有個愉快的寒假~<br>
+            </p>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.getElementById('envelope').addEventListener('click', function() {
+        this.classList.add('open');
+    });
+</script>
+
+</body>
+</html>
